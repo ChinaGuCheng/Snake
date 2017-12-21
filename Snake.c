@@ -440,6 +440,8 @@ void ChiShiWu()
 			//printStr("\01", ShiWu.x, ShiWu.y);//让这个位置变成蛇一样的图案
 			InsertArr(ShiWu.x, ShiWu.y);	//蛇头插入这个食物的坐标
 			HuiZhiShiWu();	//绘制食物
+			HuiZhiSnake();
+			Sleep(tmp);
 		}
 		break;
 	case 2:
@@ -448,6 +450,8 @@ void ChiShiWu()
 			//printStr("\01", ShiWu.x, ShiWu.y);//让这个位置变成蛇一样的图案
 			InsertArr(ShiWu.x, ShiWu.y);	//蛇头插入这个食物的坐标
 			HuiZhiShiWu();	//绘制食物
+			HuiZhiSnake();
+			Sleep(tmp);
 		}
 		break;
 	case 3:
@@ -456,6 +460,8 @@ void ChiShiWu()
 			//printStr("\01", ShiWu.x, ShiWu.y);//让这个位置变成蛇一样的图案
 			InsertArr(ShiWu.x, ShiWu.y);	//蛇头插入这个食物的坐标
 			HuiZhiShiWu();	//绘制食物
+			HuiZhiSnake();
+			Sleep(tmp);
 		}
 		break;
 	case 4:
@@ -464,6 +470,8 @@ void ChiShiWu()
 			//printStr("\01", ShiWu.x, ShiWu.y);//让这个位置变成蛇一样的图案
 			InsertArr(ShiWu.x, ShiWu.y);	//蛇头插入这个食物的坐标
 			HuiZhiShiWu();	//绘制食物
+			HuiZhiSnake();
+			Sleep(tmp);
 		}
 		break;
 	default:
@@ -501,7 +509,7 @@ int JianCe()
 				InsertArr(ShiWu.x - 1, ShiWu.y);	//蛇头插入这个食物的坐标
 				HuiZhiShiWu();	//绘制食物
 			}
-			return 0;
+			//return 0;
 		}
 		if (list->head.next->data.y == 0)
 		{
@@ -513,7 +521,7 @@ int JianCe()
 				InsertArr(ShiWu.x, ShiWu.y - 1);	//蛇头插入这个食物的坐标
 				HuiZhiShiWu();	//绘制食物
 			}
-			return 0;
+			//return 0;
 		}
 		if (list->head.next->data.x == W - 1)
 		{
@@ -525,7 +533,7 @@ int JianCe()
 				InsertArr(ShiWu.x + 1, ShiWu.y);	//蛇头插入这个食物的坐标
 				HuiZhiShiWu();	//绘制食物
 			}
-			return 0;
+			//return 0;
 		}
 		if (list->head.next->data.y == H - 1)
 		{
@@ -537,7 +545,7 @@ int JianCe()
 				InsertArr(ShiWu.x, ShiWu.y + 1);	//蛇头插入这个食物的坐标
 				HuiZhiShiWu();	//绘制食物
 			}
-			return 0;
+			//return 0;
 		}
 	}
 	
@@ -701,6 +709,7 @@ void GetFangXiang()
 			if (tmp > 50)
 			{
 				tmp -= 10;
+				if (tmp < 50)tmp = 50;
 				char buf[10] = { 0 };
 				_itoa(tmp, buf, 10);
 				
@@ -729,6 +738,7 @@ void GetFangXiang()
 		}
 		
 		//Sleep(tmp / 10);
+		setbuf(stdin, NULL);
 	}
 }
 
@@ -737,7 +747,7 @@ void test()
 {
 	
 	system("cls");//清屏
-	ChuanQiangPower = 1;
+	ChuanQiangPower = 0;
 	TongGuanLen = 20;//通关长度
 	setbuf(stdin, NULL);
 	exit1 = 0;//结束的标志
@@ -807,6 +817,7 @@ int main(void)
 			printStr("只能输入100-1000,请重新输入 :", 20, 10);
 			
 		}
+		setbuf(stdin, NULL);//清空缓冲区
 	}
 
 	printStr("                      ", 20, 12);
@@ -825,6 +836,7 @@ int main(void)
 			printStr("只能输入1-4,请重新输入 :", 20, 14);
 			
 		}
+		setbuf(stdin, NULL);//清空缓冲区
 	}
 
 	test();
